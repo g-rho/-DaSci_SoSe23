@@ -1,4 +1,4 @@
-# Data Science SoSe22
+# Data Science SoSe23
 =====================
 
 [Comic](https://www.amazon.de/-/en/Przemyslaw-Biecek/dp/8365291185/).\

@@ -54,6 +54,28 @@ model_tree <-  DALEX::explain(tree,
 # tree performance
 mp_tree <- model_performance(model_tree, cutoff = 0.1)
 
+# Create random forest model
+
+library("mlr3")
+# set up task
+covid_task <- TaskClassif$new(id = "covid_spring", backend = covid_spring, target = "Death", positive = "Yes")
+# set up learner
+library("mlr3learners")
+covid_ranger <- lrn("classif.ranger", predict_type = "prob", num.trees = 25)
+# Train learner
+covid_ranger$train(covid_task) # Training!  (..note: this is done on the spring data!)
+
+# Wrap your model 
+model_ranger <-  explain(covid_ranger,
+                         predict_function = function(m,x) predict(m, x, predict_type = "prob")[,1],
+                         data = covid_summer[,-8],
+                         y = covid_summer$Death == "Yes",
+                         type = "classification",
+                         label = "Ranger",
+                         verbose = FALSE)
+
+# forest performance
+mp_ranger <- model_performance(model_ranger)
 
 
 
