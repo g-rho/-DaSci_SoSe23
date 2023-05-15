@@ -7,3 +7,4 @@
 Original [Paper](https://doi.org/10.1080/01605682.2021.1922098).\
 Comprehensive textbook on [explanatory model analysis](https://ema.drwhy.ai/) with more details on the methods used in this lecture.\
 [mlr3book](https://mlr3book.mlr-org.com/)
+Comprehensive paper in [hyperparameter optimization](https://arxiv.org/abs/2107.05847)
